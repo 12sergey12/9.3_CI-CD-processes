@@ -1,0 +1,15 @@
+[webservers]
+
+sonar-1   ansible_host=178.154.202.83
+
+sonar-2   ansible_host=178.154.200.215
+
+[databases]
+
+nexus-01   ansible_host=178.154.205.189
+
+sonar-01   ansible_host=178.154.200.93
+
+[clickhouse-01]
+  
+clickhouse-01   ansible_host=178.154.203.84
