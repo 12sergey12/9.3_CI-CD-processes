@@ -537,7 +537,7 @@ root@baranovsa:/home/baranovsa/9.3_baranov/mnt-homeworks/09-ci-03-cicd/example#
 
 4. В ответе пришлите файл `maven-metadata.xml` для этого артефекта.
 
-maven-metadata.xml
+[maven-metadata.xml](https://github.com/12sergey12/9.3_CI-CD-processes/blob/main/maven-metadata.xml)
 
 ```
 <metadata modelVersion="1.1.0">
@@ -558,19 +558,27 @@ maven-metadata.xml
 ![monitoring](https://github.com/12sergey12/9.3_CI-CD-processes/blob/main/images/9.3_MAVEN-PUBLIC_HTML.png)
 
 
+
 ### Знакомство с Maven
 
+
 ### Подготовка к выполнению
+
 
 1. Скачайте дистрибутив с [maven](https://maven.apache.org/download.cgi).
 
 ```
-root@baranovsa:/home/baranovsa/9.3_baranov/mnt-homeworks/09-ci-03-cicd/mvn# wget -q https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_linux-x64_bin.tar.gz && sudo mkdir -p /opt/jdk && sudo tar -zxf openjdk-11+28_linux-x64_bin.tar.gz -C /opt/jdk/ && /opt/jdk/jdk-11/bin/java -version
+root@baranovsa:/home/baranovsa/9.3_baranov/mnt-homeworks/09-ci-03-cicd/mvn# wget -q https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_linux-x64_bin.tar.gz && 
+sudo mkdir -p /opt/jdk && 
+sudo tar -zxf openjdk-11+28_linux-x64_bin.tar.gz -C /opt/jdk/ && 
+/opt/jdk/jdk-11/bin/java -version
+
 openjdk version "11" 2018-09-25
 OpenJDK Runtime Environment 18.9 (build 11+28)
 OpenJDK 64-Bit Server VM 18.9 (build 11+28, mixed mode)
 root@baranovsa:/home/baranovsa/9.3_baranov/mnt-homeworks/09-ci-03-cicd/mvn# 
 ```
+
 ```
 root@baranovsa:/home/baranovsa/9.3_baranov/mnt-homeworks/09-ci-03-cicd/mvn# wget -q https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.zip && 
 sudo unzip -q -d /opt apache-maven-3.9.6-bin.zip && 
@@ -584,6 +592,7 @@ Default locale: ru_RU, platform encoding: UTF-8
 OS name: "linux", version: "5.10.0-27-amd64", arch: "amd64", family: "unix"
 root@baranovsa:/home/baranovsa/9.3_baranov/mnt-homeworks/09-ci-03-cicd/mvn#
 ```
+
 
 2. Разархивируйте, сделайте так, чтобы binary был доступен через вызов в shell (или поменяйте переменную PATH, или любой другой, удобный вам способ).
 
@@ -608,7 +617,10 @@ root@baranovsa:/home/baranovsa/9.3_baranov/mnt-homeworks/09-ci-03-cicd/mvn#
 
 ### Основная часть
 
+
 1. Поменяйте в `pom.xml` блок с зависимостями под ваш артефакт из первого пункта задания для Nexus (java с версией 8_282).
+
+[pom.xml](https://github.com/12sergey12/9.3_CI-CD-processes/blob/main/mvn/pom.xml)
 
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -638,6 +650,8 @@ root@baranovsa:/home/baranovsa/9.3_baranov/mnt-homeworks/09-ci-03-cicd/mvn#
 ```
 
 2. Запустите команду `mvn package` в директории с `pom.xml`, ожидайте успешного окончания.
+
+<details><summary>Вывод команды mvn package</summary>
 
 ```
 root@baranovsa:/home/baranovsa/9.3_baranov/mnt-homeworks/09-ci-03-cicd/mvn# mvn package
@@ -679,7 +693,10 @@ Downloaded from my-repo: http://178.154.205.189:8081/repository/maven-public/net
 [INFO] Finished at: 2024-01-23T21:28:03+07:00
 [INFO] ------------------------------------------------------------------------
 root@baranovsa:/home/baranovsa/9.3_baranov/mnt-homeworks/09-ci-03-cicd/mvn# 
+
 ```
+
+</details>
 
 3. Проверьте директорию `~/.m2/repository/`, найдите ваш артефакт.
 
